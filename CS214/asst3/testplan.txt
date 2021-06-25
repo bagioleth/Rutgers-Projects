@@ -1,0 +1,67 @@
+Brian Angioletti
+Ramit Sharma
+
+Extra Credit: We found an issue when opening multiple message 
+boxes at the same time and figured that was unintended behaviour 
+so we added a error message to handle that situation.
+
+TestPlan: 
+
+while creating this DUMB project, we took a modular approach so 
+that we were able to test each part of the project for 
+correctness before moving on to the next part. We managed to 
+break this project down into 3 parts: the message box structure, 
+the client server connection, the client user interface, and the 
+server messagebox connection.
+
+Testing the Message Box:
+
+For the message box, we decided to set it up as a linked list of 
+message box structs with each message box containing a queue of 
+messages to later be accessed by the server. Testing for this 
+consisted of having while loops go through all the boxes and 
+messages to make sure all of the information contained in the 
+message boxes were accessable.
+
+Testing the server client connection:
+
+The client server connection was based off of in class lectures 
+and online tutorials to make sure what we ended up with worked. 
+For testing only a simple client write, server read, server print, 
+and client read were needed to make sure the information was being 
+sent properly.
+
+Testing the client user interface:
+
+The client user interface consists of the user being prompted for 
+inputs that correspond to the acceptable commands (create, open, 
+close, delete, put, next, quit, help). We were able to visually 
+see the prompts so testing for this was fairly simple.
+
+Testing the server message box connection:
+
+Since the server is considered limited in the commands it can 
+understand with only being able to recognize 8 commands (CREAT arg0, 
+OPNBX arg0, CLSBX arg0, DELBX arg0, NXTMG, PUTMG!arg0!arg1, GDBYE, 
+HELLO). Each and every one of these commands had to be tested for 
+all error cases that were both listed on the description page and 
+what we could come up with. This is where most of the time was spent 
+testing as incorperating the server structure with the message box 
+proved to be the most complicated part. Fortunatly, through all of 
+this thorough testing, we were able to come across the extra credit 
+and incorperate it with only adding one error message. For the 
+mutexes, we placed locks around when the thread is processing inputs
+and unlocks around when it finishes the processing to make sure that
+only one thread is working at a time. This is to prevent situations
+similar to the case where client 1 creates a box with a name while
+client 2 alse creates a box with the same name. This would overwrite
+one of the message boxes and only one will go through. With only one
+thread working at a time, situations like this would be easily
+avoided.
+
+Summary:
+
+Overall, each component of the project was test individually before 
+being incorperated into the bigger project and was then further tested 
+after incorperation to confirm that only intended behavior was occuring.
+We found and implemented the extra credit error.
