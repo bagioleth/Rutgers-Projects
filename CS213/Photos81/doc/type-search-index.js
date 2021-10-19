@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"photos","l":"Album"},{"p":"photos","l":"Photo"},{"p":"photos","l":"SceneChanger"},{"p":"photos","l":"SessionInfo"},{"p":"photos","l":"User"}]
